@@ -1,0 +1,15 @@
+pipeline{
+    agent any
+    stages{
+        stage('clone repo') {
+            steps{
+                git ''
+            }
+        }
+        stage('Deploy to apache') {
+            steps {
+                sh 'cp -r * /var/www/html/'
+            }
+        }
+    }
+}
